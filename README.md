@@ -97,3 +97,5 @@ public class WildcardEx {
 ```
 - 제네릭 메서드는 반환 값을 내가 동적으로 지정할 수 있음 <-> 와일드 카드는 지정할 수 없음 (캐스팅 필수)
 - extends를 통해 상한을 지정할 수 있다(? extends Animal : Animal을 포함한 그 자식들 ) <-> super를 통해 하한을 지정할 수 있다 (? super Animal : 최소 Animal부터)
+
+## ArrayList
