@@ -136,4 +136,5 @@ public class WildcardEx {
   - 검색, 중간이나 마지막에 데이터 추가할 때 O(N)의 시간복잡도가 소요됨
 - 장점
   - 하지만 메모리를 낭비하지 않음 
+### ArrayList, LinkedList 둘 다 비슷한데 ? -> 추상화 가능 
 
