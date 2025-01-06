@@ -233,3 +233,44 @@ public class WildcardEx {
 - 용도 : 데이터들을 정렬된 순서로 유지하면서 집합의 특성을 유지할 떄
 #### java의 SET 최적화
 - 해시 충돌을 막기 위해, HashSet은 데이터 양이 75%를 넘어갈 때 배열의 크기를 2배 늘리고 늘어난 크기로 다시 해시 인덱스를 적용함(rehashing)
+
+-- 
+## MAP, Stack, Queue
+### Map
+- **key-value**
+- key는 중복되면 안됨. 값은 중복 가능
+- 순서를 유지하지 않음
+- **Collection 인터페이스의 상속을 받지 않음**
+  - 컬렉션은 하나로 쭉 저장하는 형태임 
+- HashMap, LinkedHashMap, TreeMap : HashMap을 가장 많이 사용
+
+- Map의 keySet() 메서드 : key는 중복을 허용하지 않고, 순서를 보장하지 않는다 -> Set에 적합!
+- 반대로 values는 collection에 적합하다 : value는 중복이 되어도 되니까(set안됨) -> 하지만 순서를 보장하지 않음(list는 안됨)
+  - 값의 모음인 Collection으로 반환 
+- entry : key-value의 짝. key-value 하나가 entry임
+- 즉, Map은 내부에서 Entry 객체를 만들어서 보관함
+- putIfAbsent : key가 없는 경우에만 데이터를 저장하고 싶을 때 사용 
+#### HashMap? HashSet? 뭔가 비슷한 느낌
+- Map과 Set은 뭔가 비슷한 느낌이 들 것이다 -> 그렇다면 정답! Map은 Set은 거의 같음 
+- 사실 Map은 set 옆에 단순히 value가 따라 붙은 것
+- **실제 자바 내부에서 HashSet의 구현은 대부분 HashMap의 구현을 가져다가 사용함. 그냥 Map에 value만 비워두면 Set으로 이용가능**
+#### HashMap
+- 실무에서 가장 많이 사용
+- key로 들어가는 객체는 반드시 hashCode와 equals를 오버라이딩 해야 한다
+
+--
+## Stack
+- LIFO : 가장 마지막에 넣은 것이 가장 먼저 나간다
+- stack클래스를 사용하지 말자! 대신에 Deque를 사용하는 것이 더 좋다
+
+## Queue
+- FIFO : 가장 먼저 넣은 것이 가장 먼저 나옴
+- Collection 인터페이스를 상속받은 Queue 인터페이스가 있음
+  - 그리고 Queue 인터페이스를 상속받은 Deque가 있음
+
+## Deque
+- Double Ended Queue : 양쪽 끝에 요소를 추가하거나 제거할 수 있다
+- **일반적인 큐와 스택의 기능을 모두 포함하고 있음**
+- 대표적인 구현체 : ArrayDeque(이게 훨씬 빠름), LinkedList
+### Deque와 Stack, Queue
+- Deque는 Stack과 Queue로 사용하기 위한 메서드 이름까지 제공함 
