@@ -274,3 +274,40 @@ public class WildcardEx {
 - 대표적인 구현체 : ArrayDeque(이게 훨씬 빠름), LinkedList
 ### Deque와 Stack, Queue
 - Deque는 Stack과 Queue로 사용하기 위한 메서드 이름까지 제공함 
+
+--
+## 순회
+- 자료 구조에 들어있는 데이터를 차례대로 접근해서 처리하는 것
+- 하지만, 자료 구조마다 데이터를 접근하는 방법이 모두 다르다
+- 자료구조 모두 일관성있게, 똑같은 방법으로 순서대로 접근하는 방법 = iterable, iterator 사용
+
+### Iterable 인터페이스 
+- '반복 가능한' 이란 뜻 : 클래스를 순회할 수 있게 만듦 
+- 인터페이스
+- 내부에 iterator(반복자) 인터페이스를 return 하는 iterator() 메소드만 갖고 있음 : 이걸 가지고 반복하게 만듦
+- 반복가능한 클래스에서 반복자가 나온다 
+
+### Iterator 인터페이스
+- '반복자' 라는 뜻 
+- 인터페이스
+- 내부에 hasNext, next 메소드 있음 
+
+- Collections 자료구조들은 Iterable을 상속받고 내부에 Iterator을 반환하는 iterator 메소드를 오버라이딩함 
+- Iterator 인터페이스는 내부에 hasNext, next 메소드가 있어서 Iterator의 구현체는 그것을 오버라이딩한다
+
+### 향상된 for문 = for-each
+- for-each를 사용하려면 **Iterable을 상속받은 객체만 가능**하다
+- 자료구조를 순회하는 것이 목적
+- 컴파일 시점에 Iterator의 hasNext와 next로 코드를 바꿔준다
+
+
+## Comparable, Comparator
+- Iterable, Iterator처럼 정렬할 수 있는, 정렬자?
+- 데이터를 정렬하는 방법
+### 자바의 정렬 알고리즘
+- 자바는 데이터가 작을 때는 듀얼 피벗 퀵소트, 데이터가 많으면 팀소트를 사용함 -> O(n log n)
+
+### Comparator
+- 비교자
+- 두 값을 비교할 때 비교 기준을 직접 제공할 수 있다
+- 
